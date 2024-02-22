@@ -5,5 +5,10 @@ url = 'https://www.flipkart.com/clothing-and-accessories/bottomwear/pr?sid=clo,v
 r = requests.get(url)
 soup = BeautifulSoup(r.text, 'html.parser')
 
-title = soup.find('div', class_='_2WkVRV')
-print(title)
+titles = soup.find_all('div', class_='_2WkVRV')
+descriptions= soup.find_all('a',{'class':'IRpwTa'})
+discount_price = soup.find_all('div',{'class':'_30jeq3'})
+original_price = soup.find_all('div',{'class':'_3I9_wc'})
+
+for title, desc, dis_pr, org_pr in zip(titles, descriptions, discount_price, original_price):
+	print(f'{title.string} : {desc.string} Discount Price {dis_pr.text} and Originale Price: {org_pr.text}')

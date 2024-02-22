@@ -1,0 +1,81 @@
+Q1:
+What is Web Scraping?
+=====================
+Ans:
+====
+. Web Scrapping is an autometic method to obtain large amounts of data from websites.
+. Most of this data is unstructured data in HTML Format which is then converted into structured data in a spreadsheet or a database so that it can be used in various applications.
+
+Eg:
+Ecommerce Website:
+amazone.com
+flipkart.com
+stock Market Data
+
+Q2:
+How Web Scrapping Works?
+========================
+Ans:
+See fig_one
+
+Q3:
+Application of Web Scraping?
+============================
+Ans:
+1. Reteail and Manufacturing
+2. Finacial Reasearch
+3. Data Science
+4. Marketing and Sales
+5. Acedmic
+6. Journalism
+7. Real Estate
+
+Q4:
+Installation of Python and Packages in Windows?
+===============================================
+Ans:
+Before install if you want to create a virtual environment then you create a environment by using 
+#For Creating:
+mkvirtualenv env_name
+#for activate environment
+workon env_name
+#for deactivate environment
+deactivate
+
+
+1. Install requests Package by using pip command
+pip install requests
+
+2. Install beautifulsoup4 package by using pip command
+pip install beautifulsoup4
+
+
+Q5:
+Requests Library in python?
+===========================
+Input:
+======
+import requests
+url = 'https://www.wscubetech.com/'
+r = requests.get(url)
+#For Status Code 
+print(r.status_code)
+#For text, we will get whole html code
+print(r.text)
+Output:
+=======
+200
+
+Q6:
+Obtain HTML Using BeautifulSoup
+
+import requests
+from bs4 import BeautifulSoup
+
+url = 'https://www.wscubetech.com/'
+r = requests.get(url)
+#print(r.text)
+soup = BeautifulSoup(r.text)
+print(soup)
+
+Q7:
