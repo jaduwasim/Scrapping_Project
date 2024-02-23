@@ -1,0 +1,82 @@
+Q1:What is Scrapy Framework?
+Ans:
+Scrapy An Open Source and Collaborative Framewok for extracting the data you need from websites, In a fast, simple, yet extensible way.
+Scrapy framework Maintained by Zyte and many Contributers.
+Scrapy framework written in python programming language
+Scrapy framework was first relase on 26 June 2008
+for installing Scrapy framework we use the command 
+pip install scrapy
+after this command lattest version of scrapy framewok will install
+
+>>> scrapy.__version__
+'2.11.1'
+
+
+Q2: Scrapy vs BeautifulSoup
+
+1. Scrapy is a framewok written in python where BeautifulSoup is python Library/Module
+
+2. High processing speed due to its built-in-functions where BeautifulSoup can become slow depending on task complexity
+
+3. Scrapy is Best Choice for complex projects and tasks where BeautifulSoup Ideal for samll Projects.
+
+4. Scrapy is more complex than BeautifulSoup where BeautifulSoup Idial for Beginners.
+
+5. Works more like a web crawler(spider= python classes defining what to crawl, how to do it, and how to extract information) where BeautifulSoup consider as syntax analyzier(parser)
+
+Q3: Scrapy Vs Selenium?
+1. The Purpose of Scrapy Framework to Web Scraping and crawling where puspose of Selenium is web testing and automation.
+
+2. Scrapy written in pure Python language where selenium written in Java, JavaScript, python, C#, PHP and Ruby
+
+3. Execution speed Scrapy is Fast, where Selenium Execution speed is slow.
+
+4. Scrapy is Best suitable for small to large scale of Scraping project where Selenium suitable for samll to medium scale.
+
+
+Q4: How to Create Scrapy Project?
+Ans:
+for Creating scrapy project we use commands:
+commands:
+scrapy startproject <project_name>
+
+Ex:
+scrapy startproject bookscraper
+
+After Creating This project we got a folder named with project_name and a special file Named with scrapy.cfg:
+
+Ex:
+1. bookspcraper
+2. scrapy.cfg
+
+Inside bookscraper we got five python file and one folder named with spiders:
+bookscraper:
+			|--- 1. __init__.py
+			|--- 2. items.py
+			|--- 3. middlewares.py
+			|--- 4. piplines.py
+			|--- 5. settings.py
+			|--- spiders
+						|--- __init__.py
+
+Q4: How to create generic spider?
+first go to spiders folder location:
+and use command:
+syntax:
+		>scrapy genspider <name_of_spider> <website>
+
+		after this command we got a python file named with name_of_spider.py
+Ex:
+		>scrapy genspider bookspider books.toscrape.com
+
+		file_name : bookspider.py
+
+Q: How to open Scrapy shell
+Ans:
+	scrapy shell
+
+If we want to save the data to a JSON file we can use the -O option, followed by the name of the file.
+scrapy crawl bookspider -O myscrapeddata.json
+
+If we want to save the data to a CSV file we can do so too.
+scrapy crawl bookspider -O myscrapeddata.csv
