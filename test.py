@@ -1,22 +1,31 @@
-# Ecxtractic Data from The Company Check...
 import requests
 from bs4 import BeautifulSoup
 import csv
-with open('company_check.csv', 'w', newline='') as f:
-	w = csv.writer(f)
-	w.writerow(['Company Name', 'Address','Status'])
 
-	for i in range(1,51):
-		url = 'https://www.thecompanycheck.com/company-directory/'+str(i)
-		page = requests.get(url)
-		soup = BeautifulSoup(page.text,'lxml')
-		boxes = soup.find('div',class_='col-md-8 part2 tabdirct092')
-		company_name = boxes.find_all('button',class_='cursor border-effect')
-		company_address = boxes.find_all('p', class_='mb-1 directoryc1')
-		status = boxes.find_all('p',class_='active_greentext mb-2')
-		for comp, add, st in zip(company_name, company_address, status):
-			w.writerow([comp.text, add.text, st.text])
-
-print('All Data Store in companay_check.csv')
-
-			
+Books_list = []
+prices_list = []
+availability_list = []
+for i in range(1,51):
+	url = f'https://books.toscrape.com/catalogue/page-{i}.html'
+	page = requests.get(url)
+	soup = BeautifulSoup(page.text, 'lxml')
+	boxes = soup.find('ol',class_='row')
+	Books = boxes.find_all('h3')
+	Prices = boxes.find_all('p', class_='price_color')
+	Avalibilty = boxes.find_all('i',class_='icon-ok')
+	
+	# for book, price, avb in zip(Books, Prices, Avalibilty):
+	# 	if bool(book) == True:
+	# 		Books_list.append(book.text.replace('\n',''))
+	# 	prices_list.append(price.text.replace('\n',''))
+	# 	availability_list.append(avb.text.replace('\n',''))
+	for b, p, a in zip(Books, Prices, Avalibilty):
+		if bool(b.text.replace('\n','')) == True:
+			Books_list.append(b.text.replace('\n',''))
+		# if bool(p.text.replace('\n','')) == True:
+		prices_list.append(p.text.replace('\n',''))
+		if bool(a.text.replace('\n','')) == True:
+			Avalibilty.append(a.text.replace('\n',''))
+print(len(Books_list))
+print(len(Prices))
+print(len(Avalibilty))
